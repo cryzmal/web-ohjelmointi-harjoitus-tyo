@@ -1,0 +1,354 @@
+/* perustyylit kun darkmode ei ole päällä */
+body {
+    color: #000;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff; 
+} 
+
+/* price checker tyylit*/
+
+.box {
+    color: #584d4d;
+    margin: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2vh;
+    width: auto;
+    height: auto;
+   
+}
+.price {
+    padding: 1vh;
+}
+.inputfield {
+    margin: 2vh;
+    padding: 0.5vh;
+    border-radius: 0.5vh;
+}
+
+#elementBackground {
+  font-size: 1.5vh;
+  border-radius: 1.5vh;
+  background: #1b1a1a;
+  width: auto;
+  height: auto;
+}
+
+.item-image {
+    display: none;
+}
+
+
+
+#button {
+  font-size: 1.5vh;
+  border-radius: 0.5vh;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background: #2c2c2b;
+  width: 12vh;
+  height: 3vh;
+  color: #FFF
+
+}
+#button:hover {
+    font-weight: bold;
+    color: #857777;
+}
+
+/* darkmode/lightmode-painikkeen tyylit */
+
+.toggle-label {
+    width: 5vh;
+    height: 2vh;
+    position: absolute; 
+    top: 2vh; 
+    right: 1.5vh;
+    z-index: 1100;
+    display: block;
+    background: #ebebeb;
+    border-radius: 2vh;
+    box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4), inset 0px -5px 15px rgba(255,255,255,0.4);
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 0.2vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.toggle-label .circle  {
+    width: 1.8vh;
+    height: 1.8vh;
+    background: linear-gradient(180deg, #ffcc89, #d8860b);
+    border-radius: 1.8vh;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin-left: 0;
+}
+
+/* darkmode/lightmode-painikkeen checkboxin piilotus*/
+
+#darkmodeToggle {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.background {
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+    z-index: -1;
+    position: absolute;
+    transition: background-color 0.3s;
+}
+
+
+/* base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+li {
+    margin-top: 0.7vh;
+}
+
+a {
+    color: white;
+
+
+}
+a:hover {
+    color: #7d7e83;
+}
+
+.off-screen-menu {
+    background-color:  rgb(49, 49, 49);
+    height: 100vh;
+    width: 100%;
+    max-width: 450px;
+    position: fixed;
+    top: 6vh;
+    left: -450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    text-align: center;
+    z-index: 1000;
+    font-size: 3vh;
+    transition: .3s ease;
+}
+
+
+
+.off-screen-menu.active {
+    left: 0;
+}
+
+nav {
+    padding: 1rem;
+    display: flex;
+   
+}
+
+
+
+/* ham menu */
+.ham-menu {
+    height: 60px;
+    width: 50px;
+    position: fixed; 
+    top: 0.5vh;  
+    left: 1.5vh; 
+    cursor: pointer;
+    z-index: 1000; 
+}
+
+.ham-menu span {
+    height: 10%;
+    width: 100%;
+    background-color: #000000;
+    border-radius: 25px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s ease;
+}
+.ham-menu span:nth-child(1) {
+    top: 25%;
+}
+.ham-menu span:nth-child(3) {
+    top: 75%;
+}
+.ham-menu.active span {
+    background-color: white;
+}
+.ham-menu.active span:nth-child(1) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.ham-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+.ham-menu.active span:nth-child(3) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* yläpalkki*/
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6vh; 
+    background-color: #222; 
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000; 
+}
+
+/* RPSSL-game */
+
+.score-board {
+    background-color: #4e4d4d;
+    border: 0.5vh #4e4d4d;
+    border-radius: 0.4vh;
+    text-align: center;
+    width: 20vh;
+    color: rgb(0, 0, 0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 2.5vh;
+    padding: 1.5vh 2vh;
+    position: relative;  
+}
+
+.badge {
+    background: #960b0b;
+    color: white;
+    font-size: 1.4vh;
+    padding: 0.2vh 1vh;
+}
+
+#user-label {
+    position: absolute;
+    top: 2vh;
+    left: -2.8vh;
+    border-radius: 0.2vh;
+}
+
+#computer-label {
+    position: absolute;
+    top: 2vh;
+    right: -3vh;
+    border-radius: 0.2vh;
+}
+
+.result {
+    font-size: 4vh;
+}
+
+.result > p {
+    margin: 3vh;
+    text-align: center;
+    font-weight: bold;
+}
+
+.choices {
+    text-align: center;
+}
+
+.choice {
+    border: 0.4vh solid rgb(0, 0, 0);
+    background-color: #4e4d4d;
+    border-radius: 50%;
+    margin: 0 1vh;
+    padding: 1vh;
+    display: inline-block;
+    transition: all 0.2s ease;    
+}
+
+.choice:hover {
+    cursor: pointer;
+    background: #960b0b;
+}
+
+img {
+    height: 10vh;
+    width: auto;
+}
+
+#action-message {
+    color: black;
+    margin-top: 3vh;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2vh;
+}
+
+
+
+
+@media screen and (max-width: 800px) {
+    .off-screen-menu {
+        top: 6vh;
+        justify-content: fixed;
+        font-size:3.8vh;
+        max-width: 400px;
+        left: -400px;
+    }
+}
+
+@media screen and (max-height: 1191px) {
+    .top-bar {
+        display: none; 
+    }
+    .off-screen-menu {
+        top: 0;
+        justify-content: center;
+        font-size: 5vh;
+        max-width: 450px;
+        left: -450px;
+    }
+    
+}
+
+@media screen and (max-width: 986px) and (min-width: 749px) {
+    .choices {
+        max-width: 70%      
+    }
+
+    .choice {
+        margin:0 0.5vh;
+    }
+}
+@media screen and (max-width: 748px) {
+    .choices {
+        max-width: 92%      
+    }
+    .choice {
+        margin:1%;
+    }
+}
